@@ -3,10 +3,12 @@ const nav = document.querySelector('#site-nav');
 menuButton.addEventListener('click', () => {
   const open = nav.classList.toggle('open');
   menuButton.setAttribute('aria-expanded', String(open));
+  menuButton.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
 });
 nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
   nav.classList.remove('open');
   menuButton.setAttribute('aria-expanded', 'false');
+  menuButton.setAttribute('aria-label', 'Menüyü aç');
 }));
 
 const observer = new IntersectionObserver(entries => {
